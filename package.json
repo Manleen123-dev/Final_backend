@@ -1,0 +1,16 @@
+{
+  "name": "final_project",
+  "version": "1.0.0",
+  "description": "Backend project",
+  "keywords": [
+    "Javascript",
+    "Backend"
+  ],
+  "license": "ISC",
+  "author": "Manleen kaur",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
