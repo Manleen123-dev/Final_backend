@@ -9,13 +9,13 @@ class ApiError extends Error{
         this.statusCode=statusCode
         this.data=null
         this.message=message
-    this.sucess=false;
-   this.errors=errors
+    this.success=false;
+   this.errors=error
    if(stack){
     this.stack=stack
    }else{
-    Error.capturesStackTrace(this,this.constructor)
+    Error.captureStackTrace(this,this.constructor)
    }
     }
 }
-export{apierror}
+export{ApiError}
