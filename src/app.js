@@ -3,7 +3,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 import { ApiError } from "./utils/apierror.js"
 import { ApiResponse } from "./utils/apiResponse.js"
-const app=express()
+const app = express()
 
 const allowedOrigins = process.env.CORS_ORIGIN
     ?.split(",")
@@ -23,10 +23,10 @@ app.use(cors({
 
         return callback(new ApiError(403, "Not allowed by CORS"))
     },
-    credentials:true
+    credentials: true
 }))
-app.use(express.json({limit:"16kb"}))
-app.use(express.urlencoded({extended:true,limit:"16kb"}))
+app.use(express.json({ limit: "16kb" }))
+app.use(express.urlencoded({ extended: true, limit: "16kb" }))
 app.use(express.static("public"))
 app.use(cookieParser())
 
@@ -45,25 +45,12 @@ app.get("/api/v1/health", (req, res) => {
         }, "API is healthy"))
 })
 
-if (process.env.DEPLOYMENT_PASSWORD) {
-    app.use((req, res, next) => {
-        if (req.method === 'OPTIONS') return next();
-        const providedPassword = req.headers['x-deployment-password'];
-        console.log(`[Auth Guard] Path: ${req.path}, Provided: '${providedPassword}', Expected: '${process.env.DEPLOYMENT_PASSWORD}'`);
-        if (providedPassword === process.env.DEPLOYMENT_PASSWORD) {
-            return next();
-        }
-        return res.status(401).json({
-            statusCode: 401,
-            success: false,
-            message: "Deployment password required or invalid",
-            errors: []
-        });
-    });
-}
 
-app.use("/api/v1/users",userRouter)
-app.use("/api/v1/videos",videoRouter)
+
+
+
+app.use("/api/v1/users", userRouter)
+app.use("/api/v1/videos", videoRouter)
 
 app.use((req, res) => {
     return res
@@ -86,4 +73,4 @@ app.use((err, req, res, next) => {
 })
 
 
-export {app}
+export { app }
