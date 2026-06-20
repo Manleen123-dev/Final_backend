@@ -32,6 +32,7 @@ app.use(cookieParser())
 
 //routes
 import userRouter from './routes/user.router.js'
+import videoRouter from './routes/video.router.js'
 
 //routes declaration
 
@@ -44,7 +45,25 @@ app.get("/api/v1/health", (req, res) => {
         }, "API is healthy"))
 })
 
+if (process.env.DEPLOYMENT_PASSWORD) {
+    app.use((req, res, next) => {
+        if (req.method === 'OPTIONS') return next();
+        const providedPassword = req.headers['x-deployment-password'];
+        console.log(`[Auth Guard] Path: ${req.path}, Provided: '${providedPassword}', Expected: '${process.env.DEPLOYMENT_PASSWORD}'`);
+        if (providedPassword === process.env.DEPLOYMENT_PASSWORD) {
+            return next();
+        }
+        return res.status(401).json({
+            statusCode: 401,
+            success: false,
+            message: "Deployment password required or invalid",
+            errors: []
+        });
+    });
+}
+
 app.use("/api/v1/users",userRouter)
+app.use("/api/v1/videos",videoRouter)
 
 app.use((req, res) => {
     return res

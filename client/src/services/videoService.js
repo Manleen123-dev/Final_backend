@@ -40,6 +40,7 @@ export async function getVideo(videoId) {
     video,
     comments,
     recommended: recommendedVideos.filter((item) => item.id !== video.id).slice(0, 5),
+    creatorVideos: videos.filter((item) => item.creator === video.creator && item.id !== video.id),
   };
 }
 

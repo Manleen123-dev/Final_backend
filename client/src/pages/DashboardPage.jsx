@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { BarChart3, Pencil, Trash2, Upload } from "lucide-react";
 import { useState } from "react";
 import Page from "../components/layout/Page";
@@ -8,19 +8,40 @@ import Modal from "../components/ui/Modal";
 import Skeleton from "../components/ui/Skeleton";
 import { getDashboardData } from "../services/videoService";
 import { useToast } from "../contexts/ToastContext";
+import { videoApi } from "../services/apiClient";
 
 export default function DashboardPage() {
   const [uploadOpen, setUploadOpen] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const { showToast } = useToast();
+  const queryClient = useQueryClient();
+  
   const { data, isLoading } = useQuery({
     queryKey: ["dashboard"],
-    queryFn: getDashboardData,
+    queryFn: async () => {
+      const mockData = await getDashboardData();
+      const response = await videoApi.getDashboardVideos();
+      return {
+        stats: mockData.stats,
+        videos: response.data?.videos || [],
+      };
+    },
   });
 
-  function handleUpload(event) {
+  async function handleUpload(event) {
     event.preventDefault();
-    setUploadOpen(false);
-    showToast("Frontend upload draft saved. Add video API routes to publish for real.");
+    const form = new FormData(event.currentTarget);
+    setUploading(true);
+    try {
+      await videoApi.uploadVideo(form);
+      showToast("Video published successfully!");
+      setUploadOpen(false);
+      queryClient.invalidateQueries({ queryKey: ["dashboard"] });
+    } catch (err) {
+      showToast(err.message || "Failed to upload video", "error");
+    } finally {
+      setUploading(false);
+    }
   }
 
   return (
@@ -66,11 +87,19 @@ export default function DashboardPage() {
               <h2 className="text-2xl font-semibold tracking-[-0.03em] text-apple-black dark:text-white">Manage videos</h2>
             </div>
             <div className="divide-y divide-apple-line/70 dark:divide-white/10">
+              {data.videos.length === 0 && (
+                <div className="p-10 text-center text-apple-gray">
+                  No videos uploaded yet.
+                </div>
+              )}
               {data.videos.map((video) => (
-                <div className="grid gap-4 p-5 md:grid-cols-[1fr_auto] md:items-center" key={video.id}>
-                  <div>
-                    <p className="font-semibold text-apple-black dark:text-white">{video.title}</p>
-                    <p className="mt-1 text-sm text-apple-gray">{video.views} views · {video.category} · {video.duration}</p>
+                <div className="grid gap-4 p-5 md:grid-cols-[1fr_auto] md:items-center" key={video._id || video.id}>
+                  <div className="flex items-center gap-4">
+                    <img src={video.thumbnail} alt={video.title} className="h-16 w-28 rounded-lg object-cover bg-black/10 dark:bg-white/10" />
+                    <div>
+                      <p className="font-semibold text-apple-black dark:text-white">{video.title}</p>
+                      <p className="mt-1 text-sm text-apple-gray">{video.views || 0} views · {Math.round(video.duration)}s</p>
+                    </div>
                   </div>
                   <div className="flex gap-2">
                     <Button variant="secondary"><Pencil className="h-4 w-4" /> Edit</Button>
@@ -89,8 +118,8 @@ export default function DashboardPage() {
           <Input label="Description" name="description" placeholder="Short description" required />
           <FileInput label="Video file" name="videoFile" required />
           <FileInput label="Thumbnail" name="thumbnail" required />
-          <Button type="submit">
-            <Upload className="h-4 w-4" /> Save draft
+          <Button type="submit" isLoading={uploading}>
+            <Upload className="h-4 w-4" /> Publish video
           </Button>
         </form>
       </Modal>

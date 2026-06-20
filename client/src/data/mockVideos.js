@@ -20,8 +20,11 @@ export const videos = [
     likes: "84K",
     subscribers: "812K",
     accent: "from-zinc-950 via-zinc-800 to-stone-200",
-    description:
-      "A calm breakdown of premium product surfaces, dashboard density, and content workflows.",
+    description: "A calm breakdown of premium product surfaces, dashboard density, and content workflows.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "2 days ago",
   },
   {
     id: "api-craft",
@@ -34,8 +37,11 @@ export const videos = [
     likes: "41K",
     subscribers: "426K",
     accent: "from-neutral-950 via-slate-800 to-blue-200",
-    description:
-      "JWT sessions, upload pipelines, deployment contracts, and user-first API ergonomics.",
+    description: "JWT sessions, upload pipelines, deployment contracts, and user-first API ergonomics.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "5 days ago",
   },
   {
     id: "linear-growth",
@@ -48,8 +54,11 @@ export const videos = [
     likes: "55K",
     subscribers: "1.2M",
     accent: "from-black via-zinc-900 to-violet-200",
-    description:
-      "Minimal interfaces, meaningful transitions, and why restraint often feels expensive.",
+    description: "Minimal interfaces, meaningful transitions, and why restraint often feels expensive.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "1 week ago",
   },
   {
     id: "notion-systems",
@@ -62,8 +71,11 @@ export const videos = [
     likes: "29K",
     subscribers: "338K",
     accent: "from-stone-950 via-neutral-800 to-amber-100",
-    description:
-      "Planning libraries, content calendars, and dashboards that scale without visual noise.",
+    description: "Planning libraries, content calendars, and dashboards that scale without visual noise.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "2 weeks ago",
   },
   {
     id: "cinematic-ui",
@@ -76,8 +88,11 @@ export const videos = [
     likes: "22K",
     subscribers: "205K",
     accent: "from-black via-neutral-900 to-red-100",
-    description:
-      "How motion, scale, and contrast can make software feel memorable without becoming heavy.",
+    description: "How motion, scale, and contrast can make software feel memorable without becoming heavy.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1535016120720-40c746a6580c?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "3 weeks ago",
   },
   {
     id: "ai-workbench",
@@ -90,8 +105,11 @@ export const videos = [
     likes: "96K",
     subscribers: "980K",
     accent: "from-slate-950 via-zinc-900 to-cyan-100",
-    description:
-      "Agentic product patterns, review loops, and how premium AI tools stay predictable.",
+    description: "Agentic product patterns, review loops, and how premium AI tools stay predictable.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "1 month ago",
   },
   {
     id: "portfolio-polish",
@@ -104,8 +122,11 @@ export const videos = [
     likes: "18K",
     subscribers: "124K",
     accent: "from-zinc-950 via-neutral-800 to-emerald-100",
-    description:
-      "The exact difference between a tutorial app and a project that reads as job-ready.",
+    description: "The exact difference between a tutorial app and a project that reads as job-ready.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "1 month ago",
   },
   {
     id: "render-vercel",
@@ -118,8 +139,11 @@ export const videos = [
     likes: "16K",
     subscribers: "218K",
     accent: "from-slate-950 via-neutral-900 to-sky-100",
-    description:
-      "Vercel frontend, Render backend, environment contracts, CORS, cookies, and API health checks.",
+    description: "Vercel frontend, Render backend, environment contracts, CORS, cookies, and API health checks.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "2 months ago",
   },
   {
     id: "saaS-taste",
@@ -132,8 +156,11 @@ export const videos = [
     likes: "27K",
     subscribers: "301K",
     accent: "from-black via-zinc-800 to-zinc-300",
-    description:
-      "Spacing, copy, contrast, and interaction decisions that make a screen feel intentional.",
+    description: "Spacing, copy, contrast, and interaction decisions that make a screen feel intentional.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "3 months ago",
   },
   {
     id: "creator-analytics",
@@ -146,8 +173,11 @@ export const videos = [
     likes: "33K",
     subscribers: "457K",
     accent: "from-neutral-950 via-stone-800 to-lime-100",
-    description:
-      "Designing metrics cards, retention insight, and revenue clarity without dashboard fatigue.",
+    description: "Designing metrics cards, retention insight, and revenue clarity without dashboard fatigue.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    previewUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=150&q=80",
+    uploadTime: "4 months ago",
   },
 ];
 
@@ -157,18 +187,21 @@ export const comments = [
   {
     id: "c1",
     author: "Priya K.",
+    avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
     body: "This is exactly the level of polish that separates a real product from a classroom clone.",
     time: "2h ago",
   },
   {
     id: "c2",
     author: "Daniel Moss",
+    avatarUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
     body: "Loved the restraint in the interface. Premium without being noisy.",
     time: "5h ago",
   },
   {
     id: "c3",
     author: "Studio North",
+    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
     body: "The deployment section alone saved me a full debugging afternoon.",
     time: "1d ago",
   },

@@ -30,6 +30,15 @@ apiClient.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${token}`;
   }
 
+  const deploymentPass = localStorage.getItem("deployment_password");
+  if (deploymentPass) {
+    if (config.headers && typeof config.headers.set === 'function') {
+      config.headers.set("x-deployment-password", deploymentPass);
+    } else {
+      config.headers["x-deployment-password"] = deploymentPass;
+    }
+  }
+
   return config;
 });
 
@@ -40,6 +49,12 @@ apiClient.interceptors.response.use(
       error.response?.data?.message ||
       error.message ||
       "Something went wrong. Please try again.";
+
+    if (message === "Deployment password required or invalid") {
+      console.error("[apiClient] Backend rejected deployment password. URL:", error.config?.url, "Message:", message);
+      localStorage.removeItem("deployment_password");
+      window.location.reload();
+    }
 
     return Promise.reject(new Error(message));
   },
@@ -78,6 +93,19 @@ export const authApi = {
   },
   health() {
     return apiClient.get("/api/v1/health");
+  },
+};
+
+export const videoApi = {
+  uploadVideo(formData) {
+    return apiClient.post("/api/v1/videos", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  },
+  getDashboardVideos() {
+    return apiClient.get("/api/v1/videos");
   },
 };
 
