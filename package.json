@@ -11,7 +11,12 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "dev:backend": "nodemon src/index.js",
+    "dev:frontend": "npm run dev --prefix client",
+    "build:frontend": "npm run build --prefix client",
+    "preview:frontend": "npm run preview --prefix client"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",

@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #111411;
+  background: #f7f8f3;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: #f7f8f3;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 0 0, rgba(23, 107, 82, 0.1), transparent 28rem),
+    radial-gradient(circle at 100% 10%, rgba(189, 122, 0, 0.08), transparent 26rem),
+    #f7f8f3;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(23, 107, 82, 0.26);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd6cc;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer components {
+  .studio-card {
+    @apply rounded-lg border border-studio-line bg-white shadow-sm;
+  }
+
+  .studio-input {
+    @apply w-full rounded-lg border border-studio-line bg-white px-3.5 py-3 text-sm text-studio-ink outline-none transition focus:border-studio-green focus:ring-4 focus:ring-studio-green/10;
+  }
+
+  .studio-label {
+    @apply text-sm font-bold text-studio-ink;
+  }
+
+  .studio-button-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-studio-green px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-studio-greenDark disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .studio-button-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-studio-greenSoft px-4 py-2.5 text-sm font-bold text-studio-greenDark transition hover:bg-studio-greenSoft/80 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .studio-button-ghost {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-studio-line bg-white px-4 py-2.5 text-sm font-bold text-studio-ink transition hover:bg-studio-canvas disabled:cursor-not-allowed disabled:opacity-60;
+  }
+}
